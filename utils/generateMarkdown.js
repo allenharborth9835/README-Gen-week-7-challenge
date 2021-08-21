@@ -53,8 +53,8 @@ function sectionInput(data){
   let links = renderLicenseLink(data.license)
   if(data.installation){
     tabelElements += `* [Installation](#installation)\n `
-    inputString += `## Installation  \n`
-    inputString += `${data.installation}  \n`  
+    inputString += `## Installation\n`
+    inputString += `${data.installation}\n`  
   }if(data.usage){
     tabelElements += `* [Usage](#usage)\n`
     inputString += `## Usage  \n`
@@ -73,7 +73,7 @@ function sectionInput(data){
     inputString += `${copyright}\n`
     inputString += `${links}\n`
   }
-  sectionContent.push(tabelElement)
+  sectionContent.push(tabelElements)
   sectionContent.push(inputString)
   return sectionContent
 }
