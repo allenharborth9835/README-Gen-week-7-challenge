@@ -1,32 +1,13 @@
-# readme gen
-  <img src="https://img.shields.io/badge/license-Unlicensed-blue" alt="Unlicensed">
-<img src="https://img.shields.io/badge/license-MIT-blue" alt="MIT">
-<img src="https://img.shields.io/badge/license-Boost 1.0-blue" alt="Boost 1.0">
-<img src="https://img.shields.io/badge/license-Apache 2.0-blue" alt="Apache 2.0">
-<img src="https://img.shields.io/badge/license-Mozilla 2.0-blue" alt="Mozilla 2.0">
-<img src="https://img.shields.io/badge/license-GNU LGPLv3-blue" alt="GNU LGPLv3">
-<img src="https://img.shields.io/badge/license-GNU GPLv3-blue" alt="GNU GPLv3">
-<img src="https://img.shields.io/badge/license-GNU AGPLv3-blue" alt="GNU AGPLv3">
-
-  ## Description
-  a breif description  
-  ## Table of Contents
-  * [Installation](#installation)
- * [Usage](#usage)
-* [Test](#test)
-* [License](#license)
-
-  [Contact-Info](#contact-info)
-## Installation  
-npm install  
-## Usage  
-use wisely 
-## Test
-good
-## License
-
-  <div style="height:300px; width:90%; overflow:auto;">
-
+// TODO: Create a function that returns the license section of README
+// If there is no license, return an empty string
+function renderLicenseSection(data) {
+  const license = data.license;
+  const name = data.name;
+    let Copyright = ""
+    if(license){
+      if(license.includes('Unlicensed')){
+        Copyright += `
+  <div style="height:300px; width:90%; overflow:auto;">\n
       This is free and unencumbered software released into the public domain.
     
       Anyone is free to copy, modify, publish, use, compile, sell, or
@@ -50,12 +31,15 @@ good
       ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
       OTHER DEALINGS IN THE SOFTWARE.
   </div>
+        `
         
-  <div style="height:300px; width:90%; overflow:auto;">
-
+      }
+      if(license.includes('MIT')){
+        Copyright += `
+  <div style="height:300px; width:90%; overflow:auto;">\n
         MIT License
     
-        Copyright (c) 2021 Allen D Harborth
+        Copyright (c) ${new Date().getFullYear()} ${name}
     
       Permission is hereby granted, free of charge, to any person obtaining a copy
       of this software and associated documentation files (the "Software"), to deal
@@ -75,9 +59,11 @@ good
       OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
       SOFTWARE.
   </div>
-        
-  <div style="height:300px; width:90%; overflow:auto;">
-
+        `
+      }
+      if(license.includes('Boost 1.0')){
+        Copyright += `
+  <div style="height:300px; width:90%; overflow:auto;">\n
       Boost Software License - Version 1.0 - August 17th, 2003
     
       Permission is hereby granted, free of charge, to any person or organization
@@ -102,9 +88,11 @@ good
       ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
       DEALINGS IN THE SOFTWARE.
   </div>
-        
-  <div style="height:300px; width:90%; overflow:auto;">
-
+        `
+      }
+      if(license.includes('Apache 2.0')){
+        Copyright += `
+  <div style="height:300px; width:90%; overflow:auto;">\n
                                   Apache License
                             Version 2.0, January 2004
                           http://www.apache.org/licenses/
@@ -293,7 +281,7 @@ good
       same "printed page" as the copyright notice for easier
       identification within third-party archives.
 
-      Copyright 2021 Allen D Harborth
+      Copyright ${new Date().getFullYear()} ${name}
 
       Licensed under the Apache License, Version 2.0 (the "License");
       you may not use this file except in compliance with the License.
@@ -307,9 +295,11 @@ good
       See the License for the specific language governing permissions and
       limitations under the License.
   </div>
-          
-  <div style="height:300px; width:90%; overflow:auto;">
-
+          `
+      }
+      if(license.includes('Mozilla 2.0')){
+        Copyright += `
+  <div style="height:300px; width:90%; overflow:auto;">\n
       Mozilla Public License Version 2.0
       ==================================
       
@@ -684,9 +674,11 @@ good
         This Source Code Form is "Incompatible With Secondary Licenses", as
         defined by the Mozilla Public License, v. 2.0.
   </div>
-            
-  <div style="height:300px; width:90%; overflow:auto;">
-
+            `
+        }
+      if(license.includes('GNU LGPLv3')){
+        Copyright += `
+  <div style="height:300px; width:90%; overflow:auto;">\n
           GNU LESSER GENERAL PUBLIC LICENSE
           Version 3, 29 June 2007
   
@@ -852,9 +844,11 @@ good
       permanent authorization for you to choose that version for the
       Library.
   </div>
-          
-  <div style="height:300px; width:90%; overflow:auto;">
-
+          `
+      }
+      if(license.includes('GNU GPLv3')){
+        Copyright += `
+  <div style="height:300px; width:90%; overflow:auto;">\n
                 GNU GENERAL PUBLIC LICENSE
                 Version 3, 29 June 2007
           
@@ -1488,8 +1482,8 @@ good
           state the exclusion of warranty; and each file should have at least
           the "copyright" line and a pointer to where the full notice is found.
           
-          readme gen a breif description
-          Copyright (C) 2021  Allen D Harborth
+          ${data.title} ${data.description}
+          Copyright (C) ${new Date().getFullYear()}  ${name}
           
           This program is free software: you can redistribute it and/or modify
           it under the terms of the GNU General Public License as published by
@@ -1509,7 +1503,7 @@ good
           If the program does terminal interaction, make it output a short
           notice like this when it starts in an interactive mode:
           
-          <program>  Copyright (C) 2021  Allen D Harborth
+          <program>  Copyright (C) ${new Date().getFullYear()}  ${name}
           This program comes with ABSOLUTELY NO WARRANTY; for details type show w'.
           This is free software, and you are welcome to redistribute it
           under certain conditions; type show c' for details.
@@ -1530,9 +1524,11 @@ good
           Public License instead of this License.  But first, please read
           <https://www.gnu.org/licenses/why-not-lgpl.html>.
   </div>
-          
-  <div style="height:300px; width:90%; overflow:auto;">
-
+          `
+      }
+      if(license.includes('GNU AGPLv3')){
+        Copyright += `
+  <div style="height:300px; width:90%; overflow:auto;">\n
                 GNU AFFERO GENERAL PUBLIC LICENSE
                 Version 3, 19 November 2007
           
@@ -2164,8 +2160,8 @@ good
           state the exclusion of warranty; and each file should have at least
           the "copyright" line and a pointer to where the full notice is found.
           
-          readme gen a breif description
-          Copyright (C) 2021  Allen D Harborth
+          ${data.title} ${data.description}
+          Copyright (C) ${new Date().getFullYear()}  ${name}
           
           This program is free software: you can redistribute it and/or modify
           it under the terms of the GNU Affero General Public License as published
@@ -2195,11 +2191,10 @@ good
           For more information on this, and how to apply and follow the GNU AGPL, see
           <https://www.gnu.org/licenses/>.
   </div>
-        
-For more information, please refer to [https://unlicense.org](https://unlicense.org)For more information, refer to[https://mit-license.org/](https://mit-license.org/)For more information, refer to[https://opensource.org/licenses/BSL-1.0](https://opensource.org/licenses/BSL-1.0)For more information, refer to[https://www.apache.org/licenses/LICENSE-2.0](https://www.apache.org/licenses/LICENSE-2.0)For more information, refer to[https://www.mozilla.org/en-US/MPL/](https://www.mozilla.org/en-US/MPL/)For more information, refer to[https://www.fsf.org/](https://www.fsf.org/)For more information, refer to[https://www.fsf.org/](https://www.fsf.org/)For more information, refer to[https://www.fsf.org/](https://www.fsf.org/)
+        `
+      }
+    }
+    return Copyright;
+}
 
-  ## Contact-Info
-  this project was created by Allen D Harborth
-  Github(s)[asdf](https://github.com/asdf)
-
-  get in contact by sending an email at asdfsf
+module.exports = renderLicenseSection;

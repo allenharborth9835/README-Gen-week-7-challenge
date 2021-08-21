@@ -1,3 +1,5 @@
+const renderLicenseSection = require("./generateLicenese")
+
 // TODO: Create a function that returns a license badge based on which license is passed in
 // If there is no license, return an empty string
 function renderLicenseBadge(license) {
@@ -5,95 +7,94 @@ function renderLicenseBadge(license) {
   if(license){
     license.forEach(licenseName => {
       licenseBadge += `<img src="https://img.shields.io/badge/license-${licenseName}-blue" alt="${licenseName}">\n`
-    });
+    })
   }
   return licenseBadge;
 }
 
 // TODO: Create a function that returns the license link
 // If there is no license, return an empty string
-function renderLicenseLink(license) {}
-
-// TODO: Create a function that returns the license section of README
-// If there is no license, return an empty string
-function renderLicenseSection(license) {
-  let Copyright = ""
+function renderLicenseLink(license) {
+  let links = ""
   if(license){
     if(license.includes('Unlicensed')){
-      Copyright += `
-      This is free and unencumbered software released into the public domain.
-
-      Anyone is free to copy, modify, publish, use, compile, sell, or
-      distribute this software, either in source code form or as a compiled
-      binary, for any purpose, commercial or non-commercial, and by any
-      means.
-      
-      In jurisdictions that recognize copyright laws, the author or authors
-      of this software dedicate any and all copyright interest in the
-      software to the public domain. We make this dedication for the benefit
-      of the public at large and to the detriment of our heirs and
-      successors. We intend this dedication to be an overt act of
-      relinquishment in perpetuity of all present and future rights to this
-      software under copyright law.
-      
-      THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
-      EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
-      MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
-      IN NO EVENT SHALL THE AUTHORS BE LIABLE FOR ANY CLAIM, DAMAGES OR
-      OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE,
-      ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
-      OTHER DEALINGS IN THE SOFTWARE.`
+      links += `For more information, please refer to [https://unlicense.org](https://unlicense.org)\n`
     }
-    if(license.includes('MIT')){}
-    if(license.includes('Boost 1.0')){}
-    if(license.includes('Apache 2.0')){}
-    if(license.includes('Mozilla 2.0')){}
-    if(license.includes('GNU LGPLv3')){}
-    if(license.includes('GNU GPLv3')){}
-    if(license.includes('GNU AGPLv3')){}
+    if(license.includes('MIT')){
+      links += `For more information, refer to[https://mit-license.org/](https://mit-license.org/)\n`
+    }
+    if(license.includes('Boost 1.0')){
+      links += `For more information, refer to[https://opensource.org/licenses/BSL-1.0](https://opensource.org/licenses/BSL-1.0)\n`
+    }
+    if(license.includes('Apache 2.0')){
+      links += `For more information, refer to[https://www.apache.org/licenses/LICENSE-2.0](https://www.apache.org/licenses/LICENSE-2.0)\n`
+    }
+    if(license.includes('Mozilla 2.0')){
+      links += `For more information, refer to[https://www.mozilla.org/en-US/MPL/](https://www.mozilla.org/en-US/MPL/)\n`
+    }
+    if(license.includes('GNU LGPLv3')){
+      links += `For more information, refer to[https://www.fsf.org/](https://www.fsf.org/)\n`
+    }
+    if(license.includes('GNU GPLv3')){
+      links += `For more information, refer to[https://www.fsf.org/](https://www.fsf.org/)\n`
+    }
+    if(license.includes('GNU AGPLv3')){
+      links += `For more information, refer to[https://www.fsf.org/](https://www.fsf.org/)\n`
+    }
   }
-  return Copyright;
+  return links
 }
 
 function sectionInput(data){
+  let tabelElements = ""
   let inputString = ""
-  let copyright = renderLicenseSection(data.license)
+  let sectionContent = []
+  let copyright = renderLicenseSection(data)
+  let links = renderLicenseLink(data.license)
   if(data.installation){
+    tabelElements += `* [Installation](#installation)\n `
     inputString += `## Installation  \n`
     inputString += `${data.installation}  \n`  
   }if(data.usage){
+    tabelElements += `* [Usage](#usage)\n`
     inputString += `## Usage  \n`
-    inputString += `${data.usage}  \n`
+    inputString += `${data.usage} \n`
   }if(data.contributing){
+    tabelElements += `* [Credits](#credits)\n`
     inputString += `## Credits  \n` 
     inputString += `${data.contributing}  \n`
-  }if(data.license){
-    inputString += `## License  \n`
-    inputString += `${copyright}  \n`
+  }if(data.tests){
+    tabelElements += `* [Test](#test)\n`
+    inputString += `## Test\n` 
+    inputString += `${data.tests}\n`
+  }if(data.license.length>0){
+    tabelElements += `* [License](#license)\n`
+    inputString += `## License\n`
+    inputString += `${copyright}\n`
+    inputString += `${links}\n`
   }
-  return inputString;
+  sectionContent.push(tabelElement)
+  sectionContent.push(inputString)
+  return sectionContent
 }
 
 // TODO: Create a function to generate markdown for README
 function generateMarkdown(data) {
-  let inputString = sectionInput(data);
+  let [tabelElements, inputString] = sectionInput(data)
   let Badges = renderLicenseBadge(data.license)
 
   return `# ${data.title}
-  ${Badges}
-  ## Description
-  ${data.description}  
-  ## Table of Contents
-  * [Installation](#installation)  
-  * [Usage](#usage)  
-  * [Credits](#credits)  
-  * [License](#license)  
-  ${inputString}
-  ## Tests
-  ${data.tests}
-  ## Questions
-  [${data.github}](https://github.com/${data.github})
-  ${data.email}
+${Badges}
+## Description
+${data.description}  
+## Table of Contents
+${tabelElements}
+* [Contact-Info](#contact-info)
+${inputString}
+## Contact-Info
+this project was created by ${data.name}\n
+Github(s)[${data.github}](https://github.com/${data.github})\n
+get in contact by sending an email at ${data.email}
 `;
 }
 

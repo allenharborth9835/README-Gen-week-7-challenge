@@ -8,7 +8,7 @@ const questions = [
   {
     type:'input',
     name:'title',
-    message:'what is the name of your project (required)',
+    message:'what is the name of your project.(required)',
     validate: nameInput => {
       if(nameInput){
         return true;
@@ -21,7 +21,7 @@ const questions = [
   {
     type:'input',
     name:'description',
-    message:'enter Description of project (required)',
+    message:'enter Description of project.(required)',
     validate: descInput => {
       if(descInput){
         return true;
@@ -34,41 +34,61 @@ const questions = [
   {
     type:'input',
     name:'installation',
-    message:'enter instruction for installation',
+    message:'enter instruction for installation or leave blank to skip.',
   },
   {
     type:'input',
     name:'usage',
-    message:'enter instruction and usage',
+    message:'enter instruction and usage or leave blank to skip.',
   },
   {
     type:'input',
     name:'contributing',
-    message:'enter enter any contributions',
+    message:'enter any contributions or leave blank to skip.',
   },
   {
     type:'input',
     name:'tests',
-    message:'enter any tests',
+    message:'enter any tests or leave blank to skip.',
   },
   {
     type: 'checkbox',
     name:'license',
-    message:'choose your license',
+    message:'choose your license or hit enter to skip',
     choices:['Unlicensed', 'MIT', 'Boost 1.0', 'Apache 2.0',
-     'Mozilla 2.0', 'GNU LGPLv3', 'GNU GPLv3', 'GNU AGPLv3']
+      'Mozilla 2.0', 'GNU LGPLv3', 'GNU GPLv3', 'GNU AGPLv3']
+  },
+  {
+    type:'input',
+    name:'name',
+    message:'enter the full names of the contributor(s).(required)',
+    validate: nameInput => {
+      if(nameInput){
+        return true;
+      }else{
+        console.log('Please enter the name(s) of the contributor(s)!');
+        return false;
+      }
+    }
   },
   {
     type:'input',
     name:'github',
-    message:'enter your github',
+    message:'enter the contributor(s) github(s).(required)',
+    validate: githubInput => {
+      if(githubInput){
+        return true;
+      }else{
+        console.log('Please enter the github(s) of the contributor(s)!');
+        return false;
+      }
+    }
   },
   {
     type:'input',
     name:'email',
-    message:'enter your email',
-  }
-
+    message:'enter the contributor(s) email(s).(required)',
+  }  
 ];
 
 // TODO: Create a function to write README file
