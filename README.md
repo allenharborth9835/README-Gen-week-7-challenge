@@ -14,7 +14,10 @@ For this Project  I had to create a readme generator that creates a readme for y
 Node must be installed please go to https://nodejs.org/en/ to install mode.  
 ## Usage  
 A link to the tutorial video was added after the tut_video  
-![tut-video](./tut-video/tut-video.mp4) 
+
+<video width="320" height="240" controls>
+  <source src="./tut-video/tut-video.mov" type="video/mp4">
+</video>
 ## Credits  
 Starter code provided by the class was taken from https://github.com/coding-boot-camp/potential-enigma and provided by https://github.com/coding-boot-camp  
 ## License
