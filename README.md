@@ -17,7 +17,8 @@ A link to the tutorial video was added after the tut_video
 
 <video width="320" height="240" controls>
   <source src="./tut-video/tut-video.mp4" type="video/mp4">
-</video>
+</video>  
+
 ## Credits  
 Starter code provided by the class was taken from https://github.com/coding-boot-camp/potential-enigma and provided by https://github.com/coding-boot-camp  
 ## License
