@@ -88,7 +88,15 @@ const questions = [
     type:'input',
     name:'email',
     message:'enter the contributor(s) email(s).(required)',
-  }  
+    validate: emailInput => {
+      if(emailInput){
+        return true;
+      }else{
+        console.log('Please enter the email(s) of the contributor(s)!');
+        return false;
+      }
+    }
+  }
 ];
 
 // TODO: Create a function to write README file
@@ -105,7 +113,7 @@ function init() {
       generateMarkdown(portfolioData)
     )
     .then(ReadMeData =>
-      writeToFile("ReadMe", ReadMeData)
+      writeToFile("README", ReadMeData)
     )
 }
 

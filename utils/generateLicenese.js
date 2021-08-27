@@ -2196,5 +2196,5 @@ function renderLicenseSection(data) {
     }
     return Copyright;
 }
-
+//export render License function
 module.exports = renderLicenseSection;

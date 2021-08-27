@@ -45,6 +45,7 @@ function renderLicenseLink(license) {
   return links
 }
 
+//function that creates individual sections if inputed
 function sectionInput(data){
   let tabelElements = ""
   let inputString = ""
@@ -73,7 +74,7 @@ function sectionInput(data){
     inputString += `${copyright}\n`
     inputString += `${links}\n`
   }
-  sectionContent.push(tabelElement)
+  sectionContent.push(tabelElements)
   sectionContent.push(inputString)
   return sectionContent
 }
@@ -98,4 +99,5 @@ get in contact by sending an email at ${data.email}
 `;
 }
 
+//exports generate markdown function
 module.exports = generateMarkdown;
