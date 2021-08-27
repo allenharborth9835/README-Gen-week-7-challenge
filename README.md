@@ -15,7 +15,7 @@ Node must be installed please go to https://nodejs.org/en/ to install mode.
 ## Usage  
 A link to the tutorial video was added after the tut_video  
 
-![video](https://drive.google.com/file/d/1xNl6h8OPWzkPt0j2Q9B-0dKb71kMMgo1/preview)
+https://drive.google.com/file/d/1xNl6h8OPWzkPt0j2Q9B-0dKb71kMMgo1/preview
 
 ## Credits  
 Starter code provided by the class was taken from https://github.com/coding-boot-camp/potential-enigma and provided by https://github.com/coding-boot-camp  
