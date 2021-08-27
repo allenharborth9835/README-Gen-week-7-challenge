@@ -16,7 +16,7 @@ Node must be installed please go to https://nodejs.org/en/ to install mode.
 A link to the tutorial video was added after the tut_video  
 
 <video width="320" height="240" controls>
-  <source src="./tut-video/tut-video.mp4" type="video/mp4">
+  <source src="./tut-video/tut-video" type="video/mp4">
 </video>  
 
 ## Credits  
